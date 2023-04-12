@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/output.css";
+import "./Checkout.css";
 
 function Checkout() {
   return (

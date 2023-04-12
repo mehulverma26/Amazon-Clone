@@ -29,7 +29,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import "./output.css";
+import "./Product.css";
 
 function Product({ id, title, image, price, rating, index }) {
   return (
