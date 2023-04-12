@@ -1,0 +1,1 @@
+search bar ke saath movies with hover and transition effects as in top movies to display 
