@@ -1,10 +1,12 @@
 import React from "react";
 import "./Checkout.css";
 import Subtotal from "../components/Subtotal";
+import Header from "../components/Header";
 
 function Checkout() {
   return (
     <>
+      <Header />
       <div className="checkout">
         <div className="checkout__left">
           <img
@@ -14,7 +16,6 @@ function Checkout() {
           />
         </div>
         <div>
-          
           <h2 className="checkout__title">Your Shopping Basket</h2>
         </div>
         <div className="checkout__right">

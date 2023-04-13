@@ -36,10 +36,13 @@
 }
 
 .header_optionLineOne {
+  color: white;
   font-size: 10px;
 }
 
 .header_optionLineTwo {
+  padding: -10%;
+  color: white;
   font-size: 13px;
   font-weight: 800;
 }
