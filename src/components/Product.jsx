@@ -28,6 +28,7 @@
 // export default Product;
 
 import React from "react";
+import Rupee from "./Rupee";
 import { Link } from "react-router-dom";
 import "./Product.css";
 
@@ -48,6 +49,7 @@ function Product({ id, title, image, price, rating, index }) {
                     </span>
                   ))}
               </div>
+              <Rupee price={price} />
             </div>
             <img src={image} alt="Product" />
           </main>
