@@ -1,15 +1,13 @@
 import React from "react";
 import Rupee from "./Rupee";
 import "./Subtotal.css";
-import { useStateValue } from "../StateProvider";
 
 function Subtotal() {
-  const [{ basket }, dispatch] = useStateValue();
   return (
     <>
       <div className="subtotal">
         <p>
-          Subtotal ({basket.length} items):
+          Subtotal (0 items): {/* Add a check for basket */}
           <strong>
             <Rupee price="0" />
           </strong>
