@@ -1,15 +1,51 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import { firebaseApp } from "../firebase";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
 
 function Login() {
+  const auth = getAuth(firebaseApp);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in
+      console.log("User is signed in.");
+    } else {
+      // User is signed out
+      console.log("User is signed out.");
+    }
+  });
   const signIn = (e) => {
-    e.prevertDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => alert(error.message));
   };
   const register = (e) => {
-    e.prevertDefault();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        alert(userCredential);
+      })
+      .catch((error) => alert(error.message));
+  };
+  const sign_out = (e) => {
+    signOut(auth)
+      .then(() => {
+        console.log("successfully logged out");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   return (
@@ -46,6 +82,7 @@ function Login() {
             </button>
           </form>
           <p>*T&C apply</p>
+          <button onClick={sign_out}>Sign Out</button>
           <button onClick={register} className="login__registerButton">
             Create your Amazon Account
           </button>
